@@ -3,13 +3,21 @@
 import TopBar from '../../pageObjects/topBar';
 import NewsFilters from '../../pageObjects/newsFilters';
 import NewsCenter from '../../pageObjects/newsCenter';
-import ClickOnZieglerTab from '../../pageObjects/topBar';
+import ZieglerTab from '../../pageObjects/zieglerTab';
+import UsersFilters from '../../pageObjects/usersFilters';
+import UsersCenter from '../../pageObjects/usersCenter';
+
 
 const topBar = new TopBar();
 const newsFilters = new NewsFilters();
 const newsCenter = new NewsCenter();
+const zieglerMenu = new ZieglerTab();
+const usersFilters = new UsersFilters();
+const usersCenter = new UsersCenter();
+
 const selectors = {
-  zieglerTabButton: '#menu-button-2'
+  zieglerTabButton: '#menu-button-2',
+  usersTabButton: '#menu-button-4'
 }
 
 
@@ -36,26 +44,43 @@ describe('NewsTabLayoutVerification', () => {
   });
 
   
-  describe.only('ZieglerTabLayoutVerification', () => {
+  describe('ZieglerTabLayoutVerification', () => {
 
     beforeEach(() => { 
       cy.get(selectors.zieglerTabButton).click();
+      cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/about-ziegler')
     });
 
-
-    it.only('TopBarLayoutVerification', () => {
+    it('TopBarLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
     })
 
-    it('ZieglerMenuLayoutVerification', () => {
-      
+    it('ZieglerTabLayoutVerification', () => {
+      zieglerMenu.verifyIfZieglerTabElementsAreDisplayed();
     })
 
-    it('ZieglerCenterLayoutVerification', () => {
-      
+  });
+
+  describe.only('UsersTabLayoutVerification', () => {
+
+    beforeEach(() => { 
+      cy.get(selectors.usersTabButton).click();
+      cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/users')
+    });
+
+    it('TopBarLayoutVerification', () => {
+      topBar.verifyIfTopBarElementsAreDisplayed();
+    });
+
+    it.only('UsersFiltersLayoutVerification', () => {
+      usersFilters.verifyIfUsersFiltersElementsAreDisplayed();
     })
 
-  
+    it('UsersCenterLayoutVerification', () => {
+      usersCenter.verifyIfUsersCenterElementsAreDisplayed();
+    })
+
+
   });
 
 

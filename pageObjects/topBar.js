@@ -26,10 +26,4 @@ class TopBar {
     }
 }
 
-class ClickOnZieglerTab {
-    verifyIfZieglerTabIsClickable(){
-        cy.get(selectors.zieglerTabButton).click();
-    }
-}
-
 export default TopBar;
