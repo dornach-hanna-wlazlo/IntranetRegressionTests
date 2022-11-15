@@ -2,7 +2,7 @@ const selectors = {
     zieglerMenuTitle: 'h2',
     countriesButton: '.css-x7bmyt > :nth-child(2)',
     dornachButton: '.null.css-154a8b7',
-    zieglerOneButton: '#accordion-button-34',
+    zieglerOneButton: '#accordion-button-36',
     aboutZieglerContent: 'div.css-8atqhb > div'
 };
 
