@@ -3,7 +3,7 @@ const selectors = {
        zieglerTabButton: '#menu-button-2',
        usersTabButton: '#menu-button-4',
        knowledgeBaseTabButton: '.css-w6ajip > :nth-child(6)',
-       branchesTabButton:':nth-child(7) > a',
+       branchesTabButton:'button:nth-child(7)',
        forumTabButton: '.css-w6ajip > :nth-child(8)',
        advertsTabButton: '.css-w6ajip > :nth-child(9)',
        dornachIcon: '#Layer_1',

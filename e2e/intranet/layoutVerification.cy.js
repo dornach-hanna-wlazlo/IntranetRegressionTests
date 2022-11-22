@@ -17,7 +17,9 @@ const usersCenter = new UsersCenter();
 
 const selectors = {
   zieglerTabButton: '#menu-button-2',
-  usersTabButton: '#menu-button-4'
+  usersTabButton: '#menu-button-4',
+  knowledgeBaseTabButton: '.css-w6ajip > :nth-child(6)',
+  branchesTabButton:'button:nth-child(7)',
 }
 
 
@@ -72,7 +74,7 @@ describe('NewsTabLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
     });
 
-    it.only('UsersFiltersLayoutVerification', () => {
+    it('UsersFiltersLayoutVerification', () => {
       usersFilters.verifyIfUsersFiltersElementsAreDisplayed();
     })
 
@@ -80,6 +82,32 @@ describe('NewsTabLayoutVerification', () => {
       usersCenter.verifyIfUsersCenterElementsAreDisplayed();
     })
 
+
+  });
+
+  describe('KnowledgeBaseTabLayoutVerification', () => {
+
+    beforeEach(() => { 
+      cy.get(selectors.knowledgeBaseTabButton).click();
+      cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/knowledge-base')
+    });
+
+    it('KnowledgeBaseLayoutVerification', () => {
+      
+    });
+
+  });
+
+  describe('BranchesTabLayoutVerification', () => {
+
+    beforeEach(() => { 
+      cy.get(selectors.branchesTabButton).click();
+      cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/branches')
+    });
+
+    it('BranchesLayoutVerification', () => {
+      
+    });
 
   });
 
