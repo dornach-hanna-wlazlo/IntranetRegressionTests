@@ -1,5 +1,3 @@
-
-
 const selectors = {
     newsItemsPerPage: '.css-119smrs > .css-k008qs',
     newsPagination: '.css-5l1nhg',
