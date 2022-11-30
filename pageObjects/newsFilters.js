@@ -2,7 +2,7 @@ const selectors = {
     newsFiltersTitle: 'h2',
     newsFiltersBackground: '[data-testid="form"]',
     newsFiltersHeader: '[data-testid="newsFilters"]',
-    //newsKeywordLabel: '[data-testid="newsKeywordLabel"]',
+    newsKeywordLabel: '[data-testid="newsKeywordLabel"]',
     newsKeywordInput: '[data-testid="newsKeywordInput"]',
     newsCountryLabel: '[data-testid="newsCountryLabel"]',
     newsCountryInput: ':nth-child(3) > div > div > .css-7x52o8-control',
@@ -18,7 +18,7 @@ class newsFilters {
      cy.get(selectors.newsFiltersTitle).should('be.visible').contains('News');
      cy.get(selectors.newsFiltersBackground).should('be.visible');
      cy.get(selectors.newsFiltersHeader).should('be.visible').contains('Filters');
-     //cy.get(selectors.newsKeywordLabel).should('be.visible').contains('Label');
+     cy.get(selectors.newsKeywordLabel).should('be.visible').contains('Keyword');
      cy.get(selectors.newsKeywordInput).should('be.visible');
      cy.get(selectors.newsCountryLabel).should('be.visible').contains('Country');
      cy.get(selectors.newsCountryInput).should('be.visible');

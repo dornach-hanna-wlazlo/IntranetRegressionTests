@@ -6,9 +6,9 @@ const selectors = {
        branchesTabButton:'button:nth-child(7)',
        forumTabButton: '.css-w6ajip > :nth-child(8)',
        advertsTabButton: '.css-w6ajip > :nth-child(9)',
-       dornachIcon: '#Layer_1',
-       applicationsIcon: '#menu-button-15',
-       complianceIcon: '#Layer_1'
+       dornachIcon: '[data-testid="navDornach"]',
+       applicationsIcon: '[data-testid="navApps"]',
+       complianceIcon: '[data-testid="navComply"]'
 };
 
 class TopBar {

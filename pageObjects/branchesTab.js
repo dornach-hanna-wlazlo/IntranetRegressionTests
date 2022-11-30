@@ -12,7 +12,8 @@ const selectors = {
     cityColumnTitle:':nth-child(5) > .css-12ezmlb > .css-0',
     postCodeColumnTitle: ':nth-child(6) > .css-12ezmlb > .css-0',
     addressColumnTitle: ':nth-child(7) > .css-12ezmlb > .css-0',
-    certificatesColumnTitle: ' :nth-child(8) > .css-12ezmlb > .css-0'
+    certificatesColumnTitle: ' :nth-child(8) > .css-12ezmlb > .css-0',
+    separateBranchAtList: '.css-jh3a5k > div > table > tbody > tr'
 };
 
 class BranchesTab {
@@ -31,6 +32,7 @@ class BranchesTab {
     cy.get(selectors.postCodeColumnTitle).scrollIntoView().should('be.visible').contains('Post code');
     cy.get(selectors.addressColumnTitle).scrollIntoView().should('be.visible').contains('Address');
     cy.get(selectors.certificatesColumnTitle).scrollIntoView().should('be.visible').contains('Certificates');
+    cy.get(selectors.separateBranchAtList).should('be.visible').its('length').should('eq', 15);
 }
 }
 

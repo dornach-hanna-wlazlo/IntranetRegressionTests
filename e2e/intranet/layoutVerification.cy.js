@@ -8,6 +8,9 @@ import UsersFilters from '../../pageObjects/usersFilters';
 import UsersCenter from '../../pageObjects/usersCenter';
 import KnowledgeBase from '../../pageObjects/knowledgeBase';
 import BranchesTab from '../../pageObjects/branchesTab';
+import Footer from '../../pageObjects/footer';
+import Compliance from '../../pageObjects/compliance';
+import NewsPost from '../../pageObjects/newsPost';
 
 
 const topBar = new TopBar();
@@ -18,12 +21,19 @@ const usersFilters = new UsersFilters();
 const usersCenter = new UsersCenter();
 const knowledgeBase = new KnowledgeBase()
 const branchesTab = new BranchesTab()
+const footer = new Footer();
+const compliance = new Compliance();
+const newsPost = new NewsPost();
 
 const selectors = {
   zieglerTabButton: '#menu-button-2',
   usersTabButton: '#menu-button-4',
   knowledgeBaseTabButton: '.css-w6ajip > :nth-child(6)',
   branchesTabButton:'button:nth-child(7)',
+  complianceIcon: '[data-testid="navComply"]',
+  applicationsIcon: '[data-testid="navApps"]',
+  firstPostTitle: '.css-1ywfor0 > div.css-1wi5m9r > div.css-j7qwjs > a > div > h2',
+
 }
 
 
@@ -38,6 +48,10 @@ describe('NewsTabLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
     })
 
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
+
     it('NewsFiltersLayoutVerification', () => {
       newsFilters.verifyIfNewsFiltersElementsAreDisplayed();
     })
@@ -45,11 +59,15 @@ describe('NewsTabLayoutVerification', () => {
     it('NewsCenterLayoutVerification', () => {
       newsCenter.verifyIfNewsCenterElementsAreDisplayed();
     })
-
+  });
   
+  describe('NewsPostLayoutVerification', () => {
+    it('NewsPostVerification', () => {
+      cy.get(selectors.firstPostTitle).click();
+      //newsPost.verifyIfNewsPostElementsAreDisplayed();
+    })
   });
 
-  
   describe('ZieglerTabLayoutVerification', () => {
 
     beforeEach(() => { 
@@ -59,6 +77,10 @@ describe('NewsTabLayoutVerification', () => {
 
     it('TopBarLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
+    })
+
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
     })
 
     it('ZieglerTabLayoutVerification', () => {
@@ -77,6 +99,10 @@ describe('NewsTabLayoutVerification', () => {
     it('TopBarLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
     });
+
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
 
     it('UsersFiltersLayoutVerification', () => {
       usersFilters.verifyIfUsersFiltersElementsAreDisplayed();
@@ -100,6 +126,10 @@ describe('NewsTabLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
     });
 
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
+
     it('KnowledgeBaseLayoutVerification', () => {
       knowledgeBase.verifyIfKnowledgeBaseElementsAreDisplayed();
     });
@@ -117,11 +147,37 @@ describe('NewsTabLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
     });
 
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
+
     it('BranchesLayoutVerification', () => {
       branchesTab.verifyIfBranchesTabElementsAreDisplayed();
     });
 
   });
+
+  describe('CompliancePageLayoutVerification', () => {
+
+    beforeEach(() => { 
+      cy.get(selectors.complianceIcon).click();
+      cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/compliance')
+    });
+
+    it('TopBarLayoutVerification', () => {
+      topBar.verifyIfTopBarElementsAreDisplayed();
+    });
+
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
+
+    it('ComplianceLayoutVerification', () => {
+      compliance.verifyIfCompliancePageElementsAreDisplayed();
+    });
+
+  });
+
 
 
 
