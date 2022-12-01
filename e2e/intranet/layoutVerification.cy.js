@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import TopBar from '../../pageObjects/topBar';
-import NewsFilters from '../../pageObjects/newsFilters';
+import {NewsFilters, NewsSearching} from '../../pageObjects/newsFilters';
 import NewsCenter from '../../pageObjects/newsCenter';
 import ZieglerTab from '../../pageObjects/zieglerTab';
 import UsersFilters from '../../pageObjects/usersFilters';
@@ -15,6 +15,7 @@ import NewsPost from '../../pageObjects/newsPost';
 
 const topBar = new TopBar();
 const newsFilters = new NewsFilters();
+const newsSearching = new NewsSearching();
 const newsCenter = new NewsCenter();
 const zieglerMenu = new ZieglerTab();
 const usersFilters = new UsersFilters();
@@ -64,8 +65,24 @@ describe('NewsTabLayoutVerification', () => {
   describe('NewsPostLayoutVerification', () => {
     it('NewsPostVerification', () => {
       cy.get(selectors.firstPostTitle).click();
-      //newsPost.verifyIfNewsPostElementsAreDisplayed();
+      newsPost.verifyIfNewsPost9ElementsAreDisplayed();
     })
+    it('TopBarLayoutVerification', () => {
+      topBar.verifyIfTopBarElementsAreDisplayed();
+    })
+
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
+  });
+
+  describe.only('NewsSearchingVerification', () => {
+
+    it('NewsFilteringVerification', () => {
+      
+      newsSearching.verifyNewsSearching();
+    })
+  
   });
 
   describe('ZieglerTabLayoutVerification', () => {

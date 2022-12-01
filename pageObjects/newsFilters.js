@@ -9,11 +9,12 @@ const selectors = {
     newsLanguageLabel: '[data-testid="newsLanguageLabel"]',
     newsLanguageInput: 'div.css-j7qwjs > div > form > div:nth-child(4) > div > div > div',
     newsSearchButton: '[data-testid="newsSearch"]',
-    newsClearButton: '[data-testid="newsClear"]'
+    newsClearButton: '[data-testid="newsClear"]',
+    foundPostTitle: '.css-j7qwjs > a > div > h2'
    
 };
 
-class newsFilters {
+class NewsFilters {
  verifyIfNewsFiltersElementsAreDisplayed(){
      cy.get(selectors.newsFiltersTitle).should('be.visible').contains('News');
      cy.get(selectors.newsFiltersBackground).should('be.visible');
@@ -29,4 +30,13 @@ class newsFilters {
  }
 }
 
-export default newsFilters;
+class NewsSearching {
+    verifyNewsSearching(){
+        cy.get(selectors.newsKeywordInput).type('auto');
+        cy.get(selectors.newsSearchButton).click();
+        cy.get(selectors.foundPostTitle).should('be.visible').contains('Post for automated testing');
+    }
+}
+export default {NewsFilters, NewsSearching};
+
+

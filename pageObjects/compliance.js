@@ -11,9 +11,9 @@ const selectors = {
 class CompliancePage {
  verifyIfCompliancePageElementsAreDisplayed(){
     cy.get(selectors.complianceTitle).should('be.visible').contains('Compliance');
-    cy.get(selectors.coeEn).should('be.visible');
-    cy.get(selectors.coeFr).should('be.visible');
-    cy.get(selectors.coeDe).should('be.visible');
+    cy.get(selectors.coeEn).should('be.visible').should('have.attr', 'href');
+    cy.get(selectors.coeFr).should('be.visible').should('have.attr', 'href');
+    cy.get(selectors.coeDe).should('be.visible').should('have.attr', 'href');
     cy.get(selectors.zGCoe).should('be.visible').contains("Ziegler Group's Code of Ethics"); 
     cy.get(selectors.coeHotLine).should('be.visible').contains('CEO compliance hot-line');
 
