@@ -16,10 +16,11 @@ const selectors = {
     usersExpertiseLabel: '[data-testid="usersExpertiseLabel"]',
     usersExpertiseInput: '.css-epcc9a > form > :nth-child(7) > div',
     usersSearchButton: '[data-testid="usersSearch"]',
-    usersClearButton: '[data-testid="usersClear"]'
+    usersClearButton: '[data-testid="usersClear"]',
+    foundUserName: '.css-geek62 > h4'
 };
 
-class usersFilters {
+class UsersFilters {
  verifyIfUsersFiltersElementsAreDisplayed(){
      cy.get(selectors.usersFiltersTitle).should('be.visible').contains('User');
      cy.get(selectors.usersFiltersHeader).should('be.visible').contains('Filters');
@@ -42,4 +43,28 @@ class usersFilters {
  }
 }
 
-export default usersFilters;
+class UsersSearching {
+    verifyUsersSearching(){
+        //filter by Name
+        cy.get('.css-z344g > input').type('hanna');
+        cy.get(selectors.usersSearchButton).click();
+        cy.get(selectors.foundUserName).should('be.visible').contains('Hanna Wlazlo');
+        
+        //clear the filters
+        
+        //filter by Email:
+        
+        //filter by Organization:
+        
+        //filter by Country:
+        
+        //filter by Branch:
+
+        //filter by Department:
+        
+        //filter by Expertise:
+
+    }
+}
+
+export default {UsersFilters, UsersSearching};

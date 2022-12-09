@@ -4,7 +4,7 @@ import TopBar from '../../pageObjects/topBar';
 import {NewsFilters, NewsSearching} from '../../pageObjects/newsFilters';
 import NewsCenter from '../../pageObjects/newsCenter';
 import ZieglerTab from '../../pageObjects/zieglerTab';
-import UsersFilters from '../../pageObjects/usersFilters';
+import {UsersFilters, UsersSearching} from '../../pageObjects/usersFilters';
 import UsersCenter from '../../pageObjects/usersCenter';
 import KnowledgeBase from '../../pageObjects/knowledgeBase';
 import BranchesTab from '../../pageObjects/branchesTab';
@@ -19,6 +19,7 @@ const newsSearching = new NewsSearching();
 const newsCenter = new NewsCenter();
 const zieglerMenu = new ZieglerTab();
 const usersFilters = new UsersFilters();
+const usersSearching = new UsersSearching();
 const usersCenter = new UsersCenter();
 const knowledgeBase = new KnowledgeBase()
 const branchesTab = new BranchesTab()
@@ -65,7 +66,7 @@ describe('NewsTabLayoutVerification', () => {
   describe('NewsPostLayoutVerification', () => {
     it('NewsPostVerification', () => {
       cy.get(selectors.firstPostTitle).click();
-      newsPost.verifyIfNewsPost9ElementsAreDisplayed();
+      newsPost.verifyIfNewsPostElementsAreDisplayed();
     })
     it('TopBarLayoutVerification', () => {
       topBar.verifyIfTopBarElementsAreDisplayed();
@@ -76,7 +77,7 @@ describe('NewsTabLayoutVerification', () => {
     })
   });
 
-  describe.only('NewsSearchingVerification', () => {
+  describe('NewsSearchingVerification', () => {
 
     it('NewsFilteringVerification', () => {
       
@@ -129,7 +130,16 @@ describe('NewsTabLayoutVerification', () => {
       usersCenter.verifyIfUsersCenterElementsAreDisplayed();
     })
 
+  });
 
+  describe.only('UsersSearchingVerification', () => {
+    
+
+    it('UsersFilteringVerification', () => {
+      cy.get(selectors.usersTabButton).click();
+      usersSearching.verifyUsersSearching();
+    })
+  
   });
 
   describe('KnowledgeBaseTabLayoutVerification', () => {
