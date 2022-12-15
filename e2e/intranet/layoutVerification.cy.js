@@ -132,7 +132,7 @@ describe('NewsTabLayoutVerification', () => {
 
   });
 
-  describe.only('UsersSearchingVerification', () => {
+  describe('UsersSearchingVerification', () => {
     
 
     it('UsersFilteringVerification', () => {
@@ -178,7 +178,7 @@ describe('NewsTabLayoutVerification', () => {
       footer.verifyIfFooterElementsAreDisplayed();
     })
 
-    it('BranchesLayoutVerification', () => {
+    it.only('BranchesLayoutVerification', () => {
       branchesTab.verifyIfBranchesTabElementsAreDisplayed();
     });
 

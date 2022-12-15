@@ -1,11 +1,9 @@
 const selectors = {
-    footerSpace: '.css-1slqla1',
-    footerZiegler:'.css-1slqla1 > :nth-child(1)',
+    footerSpace: '[data-testid="footerSpace"]',
+    footerZiegler:'[data-testid="footerZiegler"]',
     footerPrivacy: '[data-testid="footerPrivacy"]',
     footerTos: '[data-testid="footerTos"]',
-    footerFeedback: '[data-testid="footerFeedback"]'
-    
-   
+    footerFeedback: '[data-testid="footerFeedback"]'  
 };
 
 class Footer {

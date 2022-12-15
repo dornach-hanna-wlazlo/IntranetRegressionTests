@@ -5,9 +5,9 @@ const selectors = {
     newsKeywordLabel: '[data-testid="newsKeywordLabel"]',
     newsKeywordInput: '[data-testid="newsKeywordInput"]',
     newsCountryLabel: '[data-testid="newsCountryLabel"]',
-    newsCountryInput: ':nth-child(3) > div > div > .css-7x52o8-control',
+    newsCountryInput: '[data-testid="newsCountryInput"]',
     newsLanguageLabel: '[data-testid="newsLanguageLabel"]',
-    newsLanguageInput: 'div.css-j7qwjs > div > form > div:nth-child(4) > div > div > div',
+    newsLanguageInput: '[data-testid="newsLanguageInput"]',
     newsSearchButton: '[data-testid="newsSearch"]',
     newsClearButton: '[data-testid="newsClear"]',
     foundPostTitle: '.css-j7qwjs > a > div > h2',
@@ -16,7 +16,6 @@ const selectors = {
     foundPostTitle3: '.css-j7qwjs > a',
     newslanguageFrench: '[id="react-select-3-listbox"]',
     foundPostTitle4: '.css-4b7u24 > .css-1wi5m9r > .css-j7qwjs > a'
-   
 };
 
 class NewsFilters {

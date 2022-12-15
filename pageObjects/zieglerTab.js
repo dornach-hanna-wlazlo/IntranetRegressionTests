@@ -1,9 +1,14 @@
 const selectors = {
     zieglerMenuTitle: 'h2',
-    countriesButton: '.css-x7bmyt > :nth-child(2)',
+    /*countriesButton: '.css-x7bmyt > :nth-child(2)',
     dornachButton: '.null.css-154a8b7',
     zieglerOneButton: '#accordion-button-34',
-    aboutZieglerContent: 'div.css-8atqhb > div'
+    aboutZieglerContent: 'div.css-8atqhb > div'*/
+    countriesButton: '[data-testid="aboutCountriesAccordion"]',
+    dornachButton: '[data-testid="aboutDornachButton"]',
+    zieglerOneButton: '[data-testid="aboutZieglerOneAccordion"]',
+    aboutZieglerContent: '[data-testid="aboutZieglerContent"]'
+    
 };
 
 class zieglerTab {
