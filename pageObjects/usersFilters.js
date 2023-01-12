@@ -17,7 +17,14 @@ const selectors = {
     usersExpertiseInput: '[data-testid="usesrsExpertiseInput"]',
     usersSearchButton: '[data-testid="usersSearchButton"]',
     usersClearButton: '[data-testid="usersClearButton"]',
-    foundUserName: '.css-geek62 > h4'
+    foundUserName: '.css-geek62 > h4',
+    foundUserName2: ':nth-child(3) > .css-geek62 > h4',
+    foundUserName3: 'div.css-geek62 > h4',
+    foundUserName4: ':nth-child(1) > .css-geek62 > h4',
+    foundUserName5: ':nth-child(2) >.css-geek62 > h4',
+    foundUserName6: 'div > .css-geek62 > h4',
+    orgCarga: '[id="react-select-4-option-0"]',
+    countryChina: '[id="react-select-5-option-1"]',
 };
 
 class UsersFilters {
@@ -49,15 +56,27 @@ class UsersSearching {
         cy.get('.css-z344g > input').type('hanna');
         cy.get(selectors.usersSearchButton).click();
         cy.get(selectors.foundUserName).should('be.visible').contains('Hanna Wlazlo');
-        
         //clear the filters
-        
+        cy.get(selectors.usersClearButton).click();
+        cy.get(selectors.foundUserName2).should('be.visible').contains('Aleksandra Nowak');
         //filter by Email:
-        
+        cy.get(selectors.usersEmailInput).type('agnieszka.szulc@dornach.eu')
+        cy.get(selectors.usersSearchButton).click();
+        cy.get(selectors.foundUserName3).should('be.visible').contains('Agnieszka Szulc');
         //filter by Organization:
-        
+        cy.get(selectors.usersClearButton).click();
+        cy.get(selectors.usersOrganizationInput).click();
+        cy.get(selectors.orgCarga).click();
+        cy.get(selectors.usersSearchButton).click();
+        cy.wait(500)
+        cy.get(selectors.foundUserName4).should('be.visible').contains('Jan Hoffmann');
+        cy.get(selectors.foundUserName5).should('be.visible').contains('Pascal Panchart');
         //filter by Country:
-        
+        cy.get(selectors.usersClearButton).click();
+        cy.get(selectors.usersCountryInput).click();
+        cy.get(selectors.countryChina).click()
+        cy.get(selectors.usersSearchButton).click();
+        cy.get(selectors.foundUserName6).should('be.visible').contains('Michał Kubiak');
         //filter by Branch:
 
         //filter by Department:

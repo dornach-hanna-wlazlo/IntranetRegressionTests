@@ -11,6 +11,8 @@ import BranchesTab from '../../pageObjects/branchesTab';
 import Footer from '../../pageObjects/footer';
 import Compliance from '../../pageObjects/compliance';
 import NewsPost from '../../pageObjects/newsPost';
+import AdvertsCenter from '../../pageObjects/advertsCenter';
+import AdvertsFilters from '../../pageObjects/advertsFilters';
 
 
 const topBar = new TopBar();
@@ -26,22 +28,25 @@ const branchesTab = new BranchesTab()
 const footer = new Footer();
 const compliance = new Compliance();
 const newsPost = new NewsPost();
+const advertsCenter = new AdvertsCenter();
+const advertsFilters = new AdvertsFilters();
 
 const selectors = {
-  zieglerTabButton: '#menu-button-2',
-  usersTabButton: '#menu-button-4',
+  zieglerTabButton: '[data-testid="zieglerTabButton"]',
+  usersTabButton: '[data-testid="usersTabButton"]',
   knowledgeBaseTabButton: '.css-w6ajip > :nth-child(6)',
   branchesTabButton:'button:nth-child(7)',
   complianceIcon: '[data-testid="navComply"]',
   applicationsIcon: '[data-testid="navApps"]',
   firstPostTitle: '.css-1ywfor0 > div.css-1wi5m9r > div.css-j7qwjs > a > div > h2',
+  advertsTabButton: 'div:nth-child(9) > button'
 
 }
 
 
 beforeEach(() => { 
   cy.visit('https://intranet.dornach-dev.zieglerlabs.com/news');
-  cy.get('.css-12bqvmo').click();
+  cy.get('.css-8duar0').click();
 });
 
 describe('NewsTabLayoutVerification', () => {
@@ -178,7 +183,7 @@ describe('NewsTabLayoutVerification', () => {
       footer.verifyIfFooterElementsAreDisplayed();
     })
 
-    it.only('BranchesLayoutVerification', () => {
+    it('BranchesLayoutVerification', () => {
       branchesTab.verifyIfBranchesTabElementsAreDisplayed();
     });
 
@@ -205,7 +210,28 @@ describe('NewsTabLayoutVerification', () => {
 
   });
 
+  describe.only('AdvertsTabLayoutVerification', () => {
+    beforeEach(() => { 
+      cy.get(selectors.advertsTabButton).click();
+      cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/adverts')
+    });
 
+    it('TopBarLayoutVerification', () => {
+      topBar.verifyIfTopBarElementsAreDisplayed();
+    })
+
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
+
+    it('AdvertsFiltersLayoutVerification', () => {
+      advertsFilters.verifyIfAdvertsFiltersElementsAreDisplayed();
+    })
+
+    //it('AdvertsCenterLayoutVerification', () => {
+      //advertsCenter.verifyIfAdvertsCenterElementsAreDisplayed();
+    //})
+  });
 
 
 
