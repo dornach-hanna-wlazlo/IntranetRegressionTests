@@ -5,7 +5,7 @@ const selectors = {
        knowledgeBaseTabButton: '[data-testid="knowledgeBaseTabButton"]',
        branchesTabButton:'[data-testid="branchesTabButton"]',
        forumTabButton: '[data-testid="forumTabButton"]',
-       advertsTabButton: '.css-w6ajip > :nth-child(9)',
+       advertsTabButton: ':nth-child(8) > button',
        dornachIcon: '[data-testid="navDornach"]',
        applicationsIcon: '[data-testid="navApps"]',
        complianceIcon: '[data-testid="navComply"]'

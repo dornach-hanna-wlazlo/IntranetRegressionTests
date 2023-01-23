@@ -43,7 +43,7 @@ class NewsSearching {
         cy.get(selectors.foundPostTitle2).should('not.exist');
         //clear the filters
         cy.get(selectors.newsClearButton).click();
-        cy.get(selectors.foundPostTitle2).should('be.visible').contains('Avatar test');
+        cy.get(selectors.foundPostTitle2).should('be.visible').contains('news');
         //filter by country:
         cy.get(selectors.newsCountryInput).click();
         cy.get(selectors.newsCountryFrance).click();

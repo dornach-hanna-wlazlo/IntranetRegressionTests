@@ -34,19 +34,19 @@ const advertsFilters = new AdvertsFilters();
 const selectors = {
   zieglerTabButton: '[data-testid="zieglerTabButton"]',
   usersTabButton: '[data-testid="usersTabButton"]',
-  knowledgeBaseTabButton: '.css-w6ajip > :nth-child(6)',
-  branchesTabButton:'button:nth-child(7)',
+  knowledgeBaseTabButton: '[data-testid="knowledgeBaseTabButton"]',
+  branchesTabButton:'[data-testid="branchesTabButton"]',
   complianceIcon: '[data-testid="navComply"]',
   applicationsIcon: '[data-testid="navApps"]',
   firstPostTitle: '.css-1ywfor0 > div.css-1wi5m9r > div.css-j7qwjs > a > div > h2',
-  advertsTabButton: 'div:nth-child(9) > button'
+  advertsTabButton: ':nth-child(8) > button'
 
 }
 
 
 beforeEach(() => { 
   cy.visit('https://intranet.dornach-dev.zieglerlabs.com/news');
-  cy.get('.css-8duar0').click();
+  cy.wait(5000).get('.css-8duar0').click();
 });
 
 describe('NewsTabLayoutVerification', () => {
@@ -210,7 +210,7 @@ describe('NewsTabLayoutVerification', () => {
 
   });
 
-  describe.only('AdvertsTabLayoutVerification', () => {
+  describe('AdvertsTabLayoutVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click();
       cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/adverts')
@@ -228,9 +228,9 @@ describe('NewsTabLayoutVerification', () => {
       advertsFilters.verifyIfAdvertsFiltersElementsAreDisplayed();
     })
 
-    //it('AdvertsCenterLayoutVerification', () => {
-      //advertsCenter.verifyIfAdvertsCenterElementsAreDisplayed();
-    //})
+    it('AdvertsCenterLayoutVerification', () => {
+      advertsCenter.verifyIfAdvertsCenterElementsAreDisplayed();
+    })
   });
 
 
