@@ -8,7 +8,8 @@ const selectors = {
        advertsTabButton: ':nth-child(8) > button',
        dornachIcon: '[data-testid="navDornach"]',
        applicationsIcon: '[data-testid="navApps"]',
-       complianceIcon: '[data-testid="navComply"]'
+       complianceIcon: '[data-testid="navComply"]',
+       userAvatar: '[data-testid="navUser"]'
 };
 
 class TopBar {
@@ -23,6 +24,7 @@ class TopBar {
         cy.get(selectors.dornachIcon).should('be.visible');
         cy.get(selectors.applicationsIcon).should('be.visible');
         cy.get(selectors.complianceIcon).should('be.visible');
+        cy.get(selectors.userAvatar).should('be.visible')
     }
 }
 

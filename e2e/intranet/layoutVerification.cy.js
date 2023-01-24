@@ -13,6 +13,7 @@ import Compliance from '../../pageObjects/compliance';
 import NewsPost from '../../pageObjects/newsPost';
 import AdvertsCenter from '../../pageObjects/advertsCenter';
 import AdvertsFilters from '../../pageObjects/advertsFilters';
+import AdvertDisplaying from '../../pageObjects/advertDisplaying';
 
 
 const topBar = new TopBar();
@@ -30,6 +31,7 @@ const compliance = new Compliance();
 const newsPost = new NewsPost();
 const advertsCenter = new AdvertsCenter();
 const advertsFilters = new AdvertsFilters();
+const advertDisplaying = new AdvertDisplaying();
 
 const selectors = {
   zieglerTabButton: '[data-testid="zieglerTabButton"]',
@@ -39,7 +41,8 @@ const selectors = {
   complianceIcon: '[data-testid="navComply"]',
   applicationsIcon: '[data-testid="navApps"]',
   firstPostTitle: '.css-1ywfor0 > div.css-1wi5m9r > div.css-j7qwjs > a > div > h2',
-  advertsTabButton: ':nth-child(8) > button'
+  advertsTabButton: ':nth-child(8) > button',
+  advertImage: 'div.css-n8fofg',
 
 }
 
@@ -231,6 +234,28 @@ describe('NewsTabLayoutVerification', () => {
     it('AdvertsCenterLayoutVerification', () => {
       advertsCenter.verifyIfAdvertsCenterElementsAreDisplayed();
     })
+  });
+
+  describe('AdvertDisplayingVerification', () => {
+    beforeEach(() => { 
+      cy.get(selectors.advertsTabButton).click();
+      cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/adverts')
+      cy.get('.css-6ibray > a > div > .css-n8fofg').click();
+    });
+
+    it('TopBarLayoutVerification', () => {
+      topBar.verifyIfTopBarElementsAreDisplayed();
+    })
+
+    it('FooterLayoutVerification', () => {
+      footer.verifyIfFooterElementsAreDisplayed();
+    })
+
+    it('AdvertDisplayingVerification', () => {
+      advertDisplaying.verifyIfAdvertIsDisplayedCorrectly();
+    })
+
+    
   });
 
 
