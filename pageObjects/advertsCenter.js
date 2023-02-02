@@ -1,7 +1,7 @@
 const selectors = {
     addNewAdvertButton: '.css-eat38v > button',
-    advertTitle: '.css-16j8xl6 > h2',
-    advertImage: '.css-n8fofg'
+    advertTitle: '[data-testid="advertTitle"]',
+    advertImage: '[data-testid="advertImage"]'
    
 };
 

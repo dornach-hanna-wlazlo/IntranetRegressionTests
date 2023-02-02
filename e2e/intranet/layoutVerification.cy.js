@@ -41,7 +41,7 @@ const selectors = {
   complianceIcon: '[data-testid="navComply"]',
   applicationsIcon: '[data-testid="navApps"]',
   firstPostTitle: '.css-1ywfor0 > div.css-1wi5m9r > div.css-j7qwjs > a > div > h2',
-  advertsTabButton: ':nth-child(8) > button',
+  advertsTabButton: '[data-testid="advertsTabButton"]',
   advertImage: 'div.css-n8fofg',
 
 }
@@ -213,7 +213,7 @@ describe('NewsTabLayoutVerification', () => {
 
   });
 
-  describe('AdvertsTabLayoutVerification', () => {
+  describe.only('AdvertsTabLayoutVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click();
       cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/adverts')
@@ -236,7 +236,7 @@ describe('NewsTabLayoutVerification', () => {
     })
   });
 
-  describe('AdvertDisplayingVerification', () => {
+  describe.only('AdvertDisplayingVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click();
       cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/adverts')

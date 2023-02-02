@@ -1,17 +1,17 @@
 const selectors = {
     advertsFiltersTitle: 'h2',
-    advertsKeywordInput: '.css-z344g > input',
-    advertsKeywordLabel: '.css-z344g > label',
-    advertsCategoryInput: 'form > :nth-child(2) > div > div > div',
+    advertsKeywordInput: '[data-testid="advertsKeywordInput"]',
+    advertsKeywordLabel: '[data-testid="advertsKeywordLabel"]',
+    advertsCategoryInput: '[data-testid="advertsCategoryInput"]',
     advertsCategoryLabel: '[data-testid="advertCategLabel"]',
-    advertsCountryInput: 'form > :nth-child(3) > div > div > div',
+    advertsCountryInput: '[data-testid="advertCountryInput"]',
     advertsCountryLabel: '[data-testid="advertCountryLabel"]',
-    advertsBranchInput: 'form > :nth-child(4) > div > div > div',
+    advertsBranchInput: '[data-testid="advertBranchInput"]',
     advertsBranchLabel: '[data-testid="advertBranchLabel"]',
-    advertsCreatedByInput: 'form > :nth-child(5) > div > div > div',
+    advertsCreatedByInput: '[data-testid="advertCreatedbyInput"]',
     advertsCreatedByLabel: '[data-testid="advertCreatedbyLabel"]',
-    advertsSearchButton: '.css-1x9d9hp',
-    advertsClearButton: '.css-1a89o0e'
+    advertsSearchButton: '[data-testid="advertsSearchButton"]',
+    advertsClearButton: '[data-testid="advertsClearButton"]'
    
 };
 

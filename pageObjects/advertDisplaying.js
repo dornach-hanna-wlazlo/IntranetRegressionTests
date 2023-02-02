@@ -1,15 +1,15 @@
 const selectors = {
     advertTitle: 'h2',
-    advertPrice: '.css-15gdg9s > p',
-    advertCategory: '.css-rn3llk > :nth-child(2) > div > p',
-    advertPublishedOn: 'div:nth-child(3) > div:nth-child(1) > p',
-    advertExpires: ':nth-child(3) > :nth-child(2) > p',
-    advertCountry: '.css-sda4yz > :nth-child(1) > p',
-    advertBranch: '.css-sda4yz > :nth-child(2) > p',
-    advertAuthor: '.css-1yg9k88 > .css-70qvj9',
-    advertDescription: '.css-1q304az > h2',
-    otherAdvertsTitle: '.css-rltemf > h2',
-    oneOfOtherAdverts: '.css-rltemf > div > a'
+    advertPrice: '[data-testid="advertPrice"]',
+    advertCategory: '[data-testid="advertCategory"]',
+    advertPublishedOn: '[data-testid="advertPublishedOn"]',
+    advertExpires: '[data-testid="advertExpires"]',
+    advertCountry: '[data-testid="advertCountry"]',
+    advertBranch: '[data-testid="advertBranch"]',
+    advertAuthor: '[data-testid="advertAuthor"]',
+    advertDescription: '[data-testid="advertDescription"]',
+    otherAdvertsTitle: '[data-testid="otherAdvertsTitle"]',
+    oneOfOtherAdverts: '[data-testid="oneOfOtherAdverts"]'
 };
 
 class AdvertDisplaying {
