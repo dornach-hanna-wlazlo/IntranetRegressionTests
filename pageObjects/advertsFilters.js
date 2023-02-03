@@ -11,7 +11,8 @@ const selectors = {
     advertsCreatedByInput: '[data-testid="advertCreatedbyInput"]',
     advertsCreatedByLabel: '[data-testid="advertCreatedbyLabel"]',
     advertsSearchButton: '[data-testid="advertsSearchButton"]',
-    advertsClearButton: '[data-testid="advertsClearButton"]'
+    advertsClearButton: '[data-testid="advertsClearButton"]',
+    advertTitle: '[data-testid="advertTitle"]',
    
 };
 
@@ -33,4 +34,25 @@ class AdvertsFilters {
  }
 }
 
-export default AdvertsFilters;
+class AdvertsSearching {
+    verifyAdvertsSearching(){
+        //filter by Keyword
+        cy.get(selectors.advertsKeywordInput).type('embedded');
+        cy.get(selectors.advertsSearchButton).click();
+        cy.get(selectors.advertTitle).should('be.visible').contains('video');
+        //clear the filters
+        cy.get(selectors.advertsClearButton).click();
+        cy.wait(5000).get(selectors.advertTitle).should('be.visible').contains('Admin advert');
+        //filter by Category
+        //filter by Country
+        //filter by Branch
+        //filter by Created by
+        cy.get(selectors.advertsCreatedByInput).click();
+        cy.get('[id="react-select-7-option-0"]').click();
+        cy.get(selectors.advertsSearchButton).click();
+        cy.get(selectors.advertTitle).should('be.visible').contains('Zaneta advert');
+    }
+}
+
+
+export default {AdvertsFilters, AdvertsSearching};

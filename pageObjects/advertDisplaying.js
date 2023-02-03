@@ -9,7 +9,7 @@ const selectors = {
     advertAuthor: '[data-testid="advertAuthor"]',
     advertDescription: '[data-testid="advertDescription"]',
     otherAdvertsTitle: '[data-testid="otherAdvertsTitle"]',
-    oneOfOtherAdverts: '[data-testid="oneOfOtherAdverts"]'
+    oneOfOtherAdverts: '[data-testid="oneOfOtherAdverts"]',
 };
 
 class AdvertDisplaying {
@@ -24,7 +24,7 @@ class AdvertDisplaying {
      cy.get(selectors.advertAuthor).should('be.visible');
      cy.get(selectors.advertDescription).should('be.visible').contains('Description');
      cy.get(selectors.otherAdvertsTitle).should('be.visible').contains('Other adverts');
-     cy.get(selectors.oneOfOtherAdverts).should('be.visible').its('length').should('eq', 3);  
+     cy.get(selectors.oneOfOtherAdverts).should('be.visible').its('length').should('eq', 3);
  } 
  } 
 export default AdvertDisplaying;

@@ -12,9 +12,9 @@ import Footer from '../../pageObjects/footer';
 import Compliance from '../../pageObjects/compliance';
 import NewsPost from '../../pageObjects/newsPost';
 import AdvertsCenter from '../../pageObjects/advertsCenter';
-import AdvertsFilters from '../../pageObjects/advertsFilters';
+import {AdvertsFilters, AdvertsSearching} from '../../pageObjects/advertsFilters';
 import AdvertDisplaying from '../../pageObjects/advertDisplaying';
-
+import AdvertAdding from '../../pageObjects/advertAdding';
 
 const topBar = new TopBar();
 const newsFilters = new NewsFilters();
@@ -31,7 +31,9 @@ const compliance = new Compliance();
 const newsPost = new NewsPost();
 const advertsCenter = new AdvertsCenter();
 const advertsFilters = new AdvertsFilters();
+const advertsSearching = new AdvertsSearching();
 const advertDisplaying = new AdvertDisplaying();
+const advertAdding = new AdvertAdding();
 
 const selectors = {
   zieglerTabButton: '[data-testid="zieglerTabButton"]',
@@ -43,6 +45,8 @@ const selectors = {
   firstPostTitle: '.css-1ywfor0 > div.css-1wi5m9r > div.css-j7qwjs > a > div > h2',
   advertsTabButton: '[data-testid="advertsTabButton"]',
   advertImage: 'div.css-n8fofg',
+  addNewAdvertButton: '.css-eat38v > button',
+  advertTitle: '[data-testid="advertTitle"]',
 
 }
 
@@ -213,7 +217,7 @@ describe('NewsTabLayoutVerification', () => {
 
   });
 
-  describe.only('AdvertsTabLayoutVerification', () => {
+  describe('AdvertsTabLayoutVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click();
       cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/adverts')
@@ -236,11 +240,11 @@ describe('NewsTabLayoutVerification', () => {
     })
   });
 
-  describe.only('AdvertDisplayingVerification', () => {
+  describe('AdvertDisplayingVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click();
       cy.url().should('eq', 'https://intranet.dornach-dev.zieglerlabs.com/adverts')
-      cy.get('.css-6ibray > a > div > .css-n8fofg').click();
+      cy.get(selectors.advertTitle).first().click();
     });
 
     it('TopBarLayoutVerification', () => {
@@ -255,7 +259,41 @@ describe('NewsTabLayoutVerification', () => {
       advertDisplaying.verifyIfAdvertIsDisplayedCorrectly();
     })
 
-    
+  });
+
+  describe('AdvertsSearching', () => {
+    beforeEach(() => { 
+      cy.get(selectors.advertsTabButton).click(); 
+    });
+    it('AdvertSearchingVerification', () => {
+      advertsSearching.verifyAdvertsSearching();
+    })
+
+  });
+
+  describe('AdvertAdding', () => {
+    beforeEach(() => { 
+      cy.get(selectors.advertsTabButton).click();
+      cy.get(selectors.addNewAdvertButton).click();
+    });
+    it('AdvertAddingLayoutVerification', () => {
+      advertAdding.verifyAdvertAddingFormElements();
+    })
+
+  });
+
+  describe('AdvertsEditing', () => {
+    beforeEach(() => { 
+      cy.get(selectors.advertsTabButton).click(); 
+    });
+
+  });
+
+  describe('AdvertsDeleting', () => {
+    beforeEach(() => { 
+      cy.get(selectors.advertsTabButton).click(); 
+    });
+
   });
 
 
