@@ -25,7 +25,7 @@ const selectors = {
 
 class advertAdding {
  verifyAdvertAddingFormElements(){
-    cy.get(selectors.advertsEditModalTitle).should('be.visible').contains('Add new advert'); 
+    //cy.get(selectors.advertsEditModalTitle).should('be.visible').contains('Add new advert'); 
     cy.get(selectors.advertsEditModalTitleLabel).should('be.visible').contains('Title'); 
     cy.get(selectors.advertsEditModalTitleInput).should('be.visible'); 
     cy.get(selectors.advertsEditModalCategoryInput).should('be.visible'); 

@@ -15,6 +15,7 @@ import AdvertsCenter from '../../pageObjects/advertsCenter';
 import {AdvertsFilters, AdvertsSearching} from '../../pageObjects/advertsFilters';
 import AdvertDisplaying from '../../pageObjects/advertDisplaying';
 import AdvertAdding from '../../pageObjects/advertAdding';
+import AdvertDeleting from '../../pageObjects/advertDeleting';
 
 const topBar = new TopBar();
 const newsFilters = new NewsFilters();
@@ -34,6 +35,7 @@ const advertsFilters = new AdvertsFilters();
 const advertsSearching = new AdvertsSearching();
 const advertDisplaying = new AdvertDisplaying();
 const advertAdding = new AdvertAdding();
+const advertDeleting = new AdvertDeleting();
 
 const selectors = {
   zieglerTabButton: '[data-testid="zieglerTabButton"]',
@@ -42,11 +44,13 @@ const selectors = {
   branchesTabButton:'[data-testid="branchesTabButton"]',
   complianceIcon: '[data-testid="navComply"]',
   applicationsIcon: '[data-testid="navApps"]',
-  firstPostTitle: '.css-1ywfor0 > div.css-1wi5m9r > div.css-j7qwjs > a > div > h2',
+  postTitle: '[data-testid="postTitle"]',
   advertsTabButton: '[data-testid="advertsTabButton"]',
   advertImage: 'div.css-n8fofg',
   addNewAdvertButton: '.css-eat38v > button',
   advertTitle: '[data-testid="advertTitle"]',
+  advertEditButton: '[data-testid="advertEditButton"]',
+  advertDeleteButton: '[data-testid="advertDeleteButton"]',
 
 }
 
@@ -77,7 +81,7 @@ describe('NewsTabLayoutVerification', () => {
   
   describe('NewsPostLayoutVerification', () => {
     it('NewsPostVerification', () => {
-      cy.get(selectors.firstPostTitle).click();
+      cy.get(selectors.postTitle).first().click();
       newsPost.verifyIfNewsPostElementsAreDisplayed();
     })
     it('TopBarLayoutVerification', () => {
@@ -286,6 +290,12 @@ describe('NewsTabLayoutVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click(); 
     });
+    it('AdvertEditingingLayoutVerification', () => {
+      advertsSearching.verifyAdvertsSearching()
+      cy.wait(1000).get(selectors.advertTitle).first().click();
+      cy.get(selectors.advertEditButton).click();
+      advertAdding.verifyAdvertAddingFormElements();
+    })
 
   });
 
@@ -293,6 +303,13 @@ describe('NewsTabLayoutVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click(); 
     });
+    it('AdvertEditingingLayoutVerification', () => {
+      advertsSearching.verifyAdvertsSearching()
+      cy.wait(1000).get(selectors.advertTitle).first().click();
+      cy.get(selectors.advertDeleteButton).click();
+      advertDeleting.verifyIfAdvertDeletingElementsAreDisplayed;
+    
+    })
 
   });
 

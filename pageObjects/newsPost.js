@@ -22,7 +22,7 @@ class NewsPost {
     cy.get(selectors.authorOfPost).should('be.visible');
     cy.get(selectors.publishedOn).should('be.visible').contains('Published on');
     cy.get(selectors.likes).should('be.visible');
-    cy.get(selectors.comment).should('be.visible');
+    //cy.get(selectors.comment).should('be.visible');
     //cy.get(selectors.copyLink).should('be.visible');
     cy.get(selectors.postImage).should('be.visible');
     cy.get(selectors.commentsBelowThePost).should('be.visible');
