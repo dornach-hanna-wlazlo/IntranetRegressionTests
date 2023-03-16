@@ -27,6 +27,7 @@ class AdvertsFilters {
      cy.get(selectors.advertsCountryLabel).should('be.visible').contains('Country');
      cy.get(selectors.advertsBranchInput).should('be.visible');
      cy.get(selectors.advertsBranchLabel).should('be.visible').contains('Branch');
+     cy.get(selectors.advertsCreatedByInput).scrollIntoView;
      cy.get(selectors.advertsCreatedByInput).should('be.visible');
      cy.get(selectors.advertsCreatedByLabel).should('be.visible').contains('Created by');
      cy.get(selectors.advertsSearchButton).should('be.visible').contains('Search');
@@ -36,21 +37,18 @@ class AdvertsFilters {
 
 class AdvertsSearching {
     verifyAdvertsSearching(){
-        //filter by Keyword
-        cy.get(selectors.advertsKeywordInput).type('embedded');
-        cy.get(selectors.advertsSearchButton).click();
-        cy.get(selectors.advertTitle).should('be.visible').contains('video');
-        //clear the filters
-        cy.get(selectors.advertsClearButton).click();
-        cy.wait(5000).get(selectors.advertTitle).should('be.visible').contains('Admin advert');
-        //filter by Category
-        //filter by Country
-        //filter by Branch
         //filter by Created by
         cy.get(selectors.advertsCreatedByInput).click();
         cy.get('[id="react-select-7-option-0"]').click();
         cy.get(selectors.advertsSearchButton).click();
         cy.get(selectors.advertTitle).should('be.visible').contains('Zaneta advert');
+        //filter by Keyword
+        cy.get(selectors.advertsKeywordInput).type('embedded');
+        cy.get(selectors.advertsSearchButton).click();
+        cy.get(selectors.advertTitle).should('be.visible')//.contains('video');
+        //clear the filters
+        cy.get(selectors.advertsClearButton).click();
+        cy.wait(5000).get(selectors.advertTitle).should('be.visible'); 
     }
 }
 

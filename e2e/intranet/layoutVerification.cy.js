@@ -16,6 +16,7 @@ import {AdvertsFilters, AdvertsSearching} from '../../pageObjects/advertsFilters
 import AdvertDisplaying from '../../pageObjects/advertDisplaying';
 import AdvertAdding from '../../pageObjects/advertAdding';
 import AdvertDeleting from '../../pageObjects/advertDeleting';
+import {BusinessApps, AddingNewApp, StarringTheApp} from '../../pageObjects/businessApps';
 
 const topBar = new TopBar();
 const newsFilters = new NewsFilters();
@@ -36,6 +37,9 @@ const advertsSearching = new AdvertsSearching();
 const advertDisplaying = new AdvertDisplaying();
 const advertAdding = new AdvertAdding();
 const advertDeleting = new AdvertDeleting();
+const businessApps = new BusinessApps();
+const addingNewApp = new AddingNewApp();
+const starringTheApp = new StarringTheApp();
 
 const selectors = {
   zieglerTabButton: '[data-testid="zieglerTabButton"]',
@@ -51,13 +55,19 @@ const selectors = {
   advertTitle: '[data-testid="advertTitle"]',
   advertEditButton: '[data-testid="advertEditButton"]',
   advertDeleteButton: '[data-testid="advertDeleteButton"]',
+  applicationsIcon: '[data-testid="navApps"]',
+
 
 }
 
 
 beforeEach(() => { 
   cy.visit('https://intranet.dornach-dev.zieglerlabs.com/news');
-  cy.wait(5000).get('.css-8duar0').click();
+  
+  //cy.visit('https://dev02intranet.dornach-dev.zieglerlabs.com/news' );
+  //cy.wait(5000).get('#root > div > div > button').click(); //Click on back to homepage
+  cy.wait(5000).get('.css-8duar0').click(); //Accept cookies
+  //cy.wait(5000).get('#root > div.css-1l7zcg4 > div > a > button').click(); //Click on log in button
 });
 
 describe('NewsTabLayoutVerification', () => {
@@ -303,7 +313,7 @@ describe('NewsTabLayoutVerification', () => {
     beforeEach(() => { 
       cy.get(selectors.advertsTabButton).click(); 
     });
-    it('AdvertEditingingLayoutVerification', () => {
+    it('AdvertDeletingLayoutVerification', () => {
       advertsSearching.verifyAdvertsSearching()
       cy.wait(1000).get(selectors.advertTitle).first().click();
       cy.get(selectors.advertDeleteButton).click();
@@ -312,6 +322,21 @@ describe('NewsTabLayoutVerification', () => {
     })
 
   });
+
+  describe('BusinessApps', () =>{
+    beforeEach(() => {
+      cy.get(selectors.applicationsIcon).click();
+    });
+    it('BusinessAppsLayoutVerification', () => {
+      businessApps.verifyIfBusinessAppsElementsAreDisplayed()
+    });
+    it('AddingNewAppVerification', () => {
+      addingNewApp.varifyIfUserCanAddPrivateApp()
+    });
+    it('StarringTheAppVerification', () => {
+      starringTheApp.varifyIfUserCanStarTheApp()
+    })
+  })
 
 
 
