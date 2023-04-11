@@ -6,7 +6,7 @@ import NewsCenter from '../../pageObjects/newsCenter';
 import ZieglerTab from '../../pageObjects/zieglerTab';
 import {UsersFilters, UsersSearching} from '../../pageObjects/usersFilters';
 import UsersCenter from '../../pageObjects/usersCenter';
-import KnowledgeBase from '../../pageObjects/knowledgeBase';
+import {KnowledgeBase, KnowledgeBaseFolder} from '../../pageObjects/knowledgeBase';
 import BranchesTab from '../../pageObjects/branchesTab';
 import Footer from '../../pageObjects/footer';
 import Compliance from '../../pageObjects/compliance';
@@ -27,6 +27,7 @@ const usersFilters = new UsersFilters();
 const usersSearching = new UsersSearching();
 const usersCenter = new UsersCenter();
 const knowledgeBase = new KnowledgeBase()
+const knowledgeBaseFolder = new KnowledgeBaseFolder()
 const branchesTab = new BranchesTab()
 const footer = new Footer();
 const compliance = new Compliance();
@@ -62,7 +63,7 @@ const selectors = {
 
 
 beforeEach(() => { 
-  cy.visit('https://intranet.dornach-dev.zieglerlabs.com/news');
+ cy.visit('https://intranet.dornach-dev.zieglerlabs.com/news');
   
   //cy.visit('https://dev02intranet.dornach-dev.zieglerlabs.com/news' );
   //cy.wait(5000).get('#root > div > div > button').click(); //Click on back to homepage
@@ -186,6 +187,12 @@ describe('NewsTabLayoutVerification', () => {
     it('KnowledgeBaseLayoutVerification', () => {
       knowledgeBase.verifyIfKnowledgeBaseElementsAreDisplayed();
     });
+
+    it('OpeningTheFolderInKnowledgeBase', () => {
+      knowledgeBaseFolder.verifyOpeningTheFolderInKnowledgeBase();
+
+    }
+  )
 
   });
 

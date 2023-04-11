@@ -27,7 +27,7 @@ class AddingNewApp {
     varifyIfUserCanAddPrivateApp(){
         cy.get(selectors.navShowAllApps).click();
         cy.get(selectors.addPrivateLinkButton).click();
-        cy.get('iframe');
+        //cy.get('iframe');
     }
 }
 

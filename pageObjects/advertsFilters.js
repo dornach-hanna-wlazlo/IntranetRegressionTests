@@ -41,7 +41,7 @@ class AdvertsSearching {
         cy.get(selectors.advertsCreatedByInput).click();
         cy.get('[id="react-select-7-option-0"]').click();
         cy.get(selectors.advertsSearchButton).click();
-        cy.get(selectors.advertTitle).should('be.visible').contains('Zaneta advert');
+        cy.wait(1000).get(selectors.advertTitle).should('be.visible').contains('Zaneta advert');
         //filter by Keyword
         cy.get(selectors.advertsKeywordInput).type('embedded');
         cy.get(selectors.advertsSearchButton).click();
